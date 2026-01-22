@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>bot_training</title>
+    <link rel="stylesheet" href="./index.css">
+
+</head>
+<body>
+
+    <a href="/test"><button>Test Model</button></a>
+
+
+    {% if not attempt %}
+        <p style="color: black; font-weight: bold;">No Submission</p>
+    {% elif attempt and success %}
+        <p style="color: green; font-weight: bold;">Submission Successful</p>
+    {% else %}
+        <p style="color: red; font-weight: bold;">Submission Unsuccessful</p>
+    {% endif %}
+
+    <form action="/submit" method="POST">
+        <h2>Training The Model</h2>
+        <div class="textInput">
+            <label for="input"></label>
+            <br>
+            <textarea id="input" name="input" rows="40" cols="80" maxlength="2000"></textarea>
+        </div>
+
+        <div class="SelectEmotion">
+            <label for="emotion">Select the corresponding emotion too your text input above</label>
+                <select name="emotion" id="emotion">
+                <option value="Happy">Happy</option>
+                <option value="Sad">Sad</option>
+                <option value="Angry">Angry</option>
+                <option value="Confused">Confused</option>
+                <option value="Frustrated">Frustrated</option>
+                <option value="Scared">Scared</option>
+                <option value="Surpised">Surpised</option>
+                <option value="Disgusted">Disgusted</option>
+                <option value="Anxious">Anxious</option>
+                <option value="Shame">Shame</option>
+                <option value="Excited">Excited</option>
+                </select>
+        </div>
+
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+
+
+
+</body>
+
+
+
+
+
+</html>

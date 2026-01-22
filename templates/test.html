@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>bot_training</title>
+    <link rel="stylesheet" href="./index.css">
+
+</head>
+<body>
+    <a href="/"><button>Train Model</button></a>
+
+    {% if not attempt %}
+        <p style="color: black; font-weight: bold;">No Test Submited</p>
+    {% elif attempt and success %}
+        <p style="color: green; font-weight: bold;">Test Successful</p>
+    {% else %}
+        <p style="color: red; font-weight: bold;">Test Unsuccessful</p>
+    {% endif %}
+
+    <form action="/test" method="POST">
+        <h2>Testing The Model</h2>
+        <div class="textInput">
+            <label for="input"></label>
+            <br>
+            <textarea id="input" name="input" rows="40" cols="80" maxlength="2000"></textarea>
+        </div>
+
+
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+
+    {% if attempt and success%}
+        <ul>
+        {% for prob in probabilities %}
+            <li>{{ prob[0] }}: {{ prob[1] }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+
+
+</body>
+
+
+
+
+
+</html>
